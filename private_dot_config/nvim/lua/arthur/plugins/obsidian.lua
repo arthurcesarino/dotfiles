@@ -26,5 +26,6 @@ return {
 		},
 
 		-- see below for full list of options 👇
+		conceallevel = 1,
 	},
 }
