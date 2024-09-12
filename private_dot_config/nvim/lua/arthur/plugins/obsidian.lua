@@ -24,8 +24,48 @@ return {
 				path = "~/Documents/notes/",
 			},
 		},
+		notes_subdir = "inbox",
+		new_notes_location = "notes_subdir",
+		daily_notes = {
+			folder = "notes/dailies",
+			default_tags = { "daily-notes" },
+		},
+		completion = {
+			nvim_cmp = true,
+			min_chars = 2,
+		},
 
-		-- see below for full list of options 👇
-		conceallevel = 1,
+		mappings = {
+			["gf"] = {
+				action = function()
+					return require("obsidian").util.gf_passthrough()
+				end,
+				opts = { noremap = false, expr = true, buffer = true },
+			},
+			-- Toggle check-boxes
+			["<leader>ch"] = {
+				action = function()
+					return require("obsidian").util.toggle_checkbox()
+				end,
+				opts = { buffer = true },
+			},
+			["<cr>"] = {
+				action = function()
+					return require("obsidian").util.smart_action()
+				end,
+				opts = { buffer = true, expr = true },
+			},
+		},
 	},
+	config = function(_, opts)
+		require("obsidian").setup(opts)
+
+		-- Set conceallevel to 1 for markdown files
+		vim.api.nvim_create_autocmd("FileType", {
+			pattern = "markdown",
+			callback = function()
+				vim.opt_local.conceallevel = 1
+			end,
+		})
+	end,
 }

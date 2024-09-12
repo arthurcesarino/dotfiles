@@ -59,5 +59,12 @@ return {
 
 		-- Use Telescope Project to list and switch projects
 		keymap.set("n", "<leader>pp", "<cmd>Telescope project<cr>", { desc = "Find project" })
+
+		vim.api.nvim_set_keymap(
+			"n",
+			"<Leader><tab>",
+			"<Cmd>lua require('telescope.builtin').commands()<CR>",
+			{ noremap = false }
+		)
 	end,
 }
