@@ -115,6 +115,21 @@ return {
 					capabilities = capabilities,
 				})
 			end,
+			-- ✅ Special handler for clangd (C++ LSP)
+			["clangd"] = function()
+				lspconfig.clangd.setup({
+					capabilities = capabilities,
+					cmd = {
+						"clangd",
+						"--background-index",
+						"--clang-tidy",
+						"--completion-style=detailed",
+						"--cross-file-rename",
+					},
+					filetypes = { "c", "cpp", "objc", "objcpp" },
+					root_dir = lspconfig.util.root_pattern(".clangd", ".git", "compile_commands.json"),
+				})
+			end,
 		})
 	end,
 }

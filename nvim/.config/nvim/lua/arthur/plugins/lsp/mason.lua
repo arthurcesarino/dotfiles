@@ -32,6 +32,7 @@ return {
 				"pyright",
 				"terraformls",
 				"lua_ls",
+				"clangd",
 			},
 		})
 

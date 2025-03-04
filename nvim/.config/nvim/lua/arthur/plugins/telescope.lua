@@ -27,9 +27,6 @@ return {
 			extensions = {
 				-- Configure the project extension
 				project = {
-					base_dirs = {
-						{ "~/databricks/", max_depth = 3 },
-					},
 					hidden_files = true, -- Show hidden files in project directories
 				},
 			},
