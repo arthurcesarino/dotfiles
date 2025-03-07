@@ -2,6 +2,9 @@ vim.g.mapleader = " "
 
 local keymap = vim.keymap -- for conciseness
 
+-- Aider.nvim keymaps
+keymap.set("n", "<leader>aa", "<cmd>AiderToggle<CR>", { desc = "Toggle Aider code assistant" })
+
 keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
 
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
