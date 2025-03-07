@@ -3,7 +3,18 @@ vim.g.mapleader = " "
 local keymap = vim.keymap -- for conciseness
 
 -- Aider.nvim keymaps
-keymap.set("n", "<leader>aa", "<cmd>AiderToggle<CR>", { desc = "Toggle Aider code assistant" })
+keymap.set(
+	"n",
+	"<leader>al",
+	"<cmd>AiderOpen --model local<CR>",
+	{ noremap = true, silent = true, desc = "Open Aider in local mode" }
+)
+keymap.set(
+	"n",
+	"<leader>aa",
+	"<cmd>AiderOpen --architect --model r1 --editor-model sonnet<CR>",
+	{ noremap = true, silent = true, desc = "Open Aider in r1/sonet mode" }
+)
 
 keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
 
