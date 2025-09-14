@@ -53,6 +53,8 @@ install_deps_fedora() {
   fi
 }
 
+#test
+
 install_deps_suse() {
   sudo zypper refresh
   sudo zypper install -y \
